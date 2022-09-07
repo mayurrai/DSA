@@ -1,0 +1,59 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <climits>
+using namespace std;
+class Node
+{
+public:
+    int data;
+    Node *next;
+};
+Node *head = NULL;
+void min(int n)
+{
+    Node *ptr;
+    Node *newNode = new Node;
+    newNode->data = n;
+    newNode->next = NULL;
+    if (head == NULL)
+    {
+        head = newNode;
+    }
+    else
+    {
+        ptr = head;
+        while (ptr->next != NULL)
+        {
+            ptr = ptr->next;
+        }
+        ptr->next = newNode;
+    }
+}
+void traverse()
+{
+    int min = INT_MAX;
+    Node *n = head;
+    while (n != NULL)
+    {
+        if(min > n->data){
+            min = n->data;
+        }
+        n = n->next;
+    }
+    cout<<min;
+}
+int main()
+{
+    int n = 5;
+    int value;
+    while (n--)
+    {
+        cin >> value;
+        min(value);
+    }
+    traverse();
+    return 0;
+}
