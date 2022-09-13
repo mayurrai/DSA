@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+    if (!(n > 2 && n <= 20))
+    {
+        cout << "Invalid list size" << endl;
+        return 0;
+    }
+    vector<int> arr(n);
+    for (int i = 0; i < n; ++i)
+        cin >> arr[i];
+    int key;
+    cin >> key;
+    int count = 0;
+    int idx;
+    for (int i = n - 1; i >= 0; --i)
+    {
+        if (arr[i] == key)
+        {
+            count++;
+        }
+        if (count == 2)
+        {
+            idx = i;
+            break;
+        }
+
+    }
+    if (count <= 1)
+    {
+        cout << "Deletion not possible" << endl;
+        return 0;
+    }
+    for (int i = n - 1; i >= 0; --i)
+    {
+        if (i != idx)
+            cout << arr[i] << endl;
+    }
+    return 0;
+}
