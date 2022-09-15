@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+int main() {
+    int n;
+    cin>>n;
+    int no_ele;
+    cin>>no_ele;
+    int arr[no_ele];
+    for(int i=0;i<no_ele;i++)
+    {
+        cin>>arr[i];
+    }
+    for(int j=n;j<=no_ele-1;j++)
+    {
+        arr[j]=arr[j+1];
+    }
+    no_ele=no_ele-1;
+    for(int i=0;i<no_ele;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+}
