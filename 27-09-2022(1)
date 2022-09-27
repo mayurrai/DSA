@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+int main() {
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    int pos;
+    cin>>pos;
+    if(pos>n)
+    {
+        cout<<"Invalid Position";
+    }
+    else{
+        n=n-1;
+        if(n==0)
+        {
+            cout<<"SLL is Empty";
+        }
+        else{
+            for(int i=pos;i<n;i++)
+            {
+                arr[i]=arr[i+1];
+            }
+            for(int i=0;i<n;i++)
+            {
+                cout<<arr[i]<<" ";
+            }
+        }
+    }
+    return 0;
+}
