@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+void checkBalance(string br,int x){
+    
+    stack<char> box;
+    bool res=true;
+    for(int i=0;i< x;i++){
+        if(box.empty())
+            box.push(br[i]);
+        else if((box.top()=='{' && br[i]=='}') || (box.top()=='(' && br[i]==')') || (box.top()=='[' && br[i]==']')){
+            box.pop();
+        }
+        else
+            box.push(br[i]);
+        if(box.empty())
+            res = true;
+        else
+             res =false;
+    }
+    if(res)
+     cout<<"Balanced";
+    else
+        cout<<"Not Balanced";
+}
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    string br;
+    int x;
+    cin>>br;
+    x=br.length();
+    checkBalance(br,x);
+        
+    return 0;
+}
