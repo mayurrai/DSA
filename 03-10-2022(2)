@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    int n,k;
+    queue<int> box;
+    cin>>n;
+    if(n<=2 || n>10){
+        cout<<"Invalid size";
+        return 0;
+    }
+    else{
+        while(box.size()!=n){
+            cin>>k;
+            if(box.empty())
+                box.push(k);
+            else if(k>=box.front())
+                box.push(k);
+        }
+        
+    }
+    while(!box.empty()){
+        cout<<box.front()<<endl;
+        box.pop();
+    }
+    
+    return 0;
+}
