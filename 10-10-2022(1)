@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+int main() {
+    string to_be_reversed;
+    getline(cin,to_be_reversed);
+    int n=to_be_reversed.size();
+    for(int i=n-1;i>=0;i--)
+    {
+        cout<<to_be_reversed[i];
+    }
+    return 0;
+}
