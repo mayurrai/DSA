@@ -1,0 +1,27 @@
+#include <vector>
+#include <iostream>
+#include<string>
+using namespace std;
+
+
+int main() {
+    int inpu, n;
+    string k;
+    vector<string> stri;
+    cin >> inpu;
+    cin>>n;
+    for(int i = 0;i<n;i++){
+        cin>>k;
+        stri.push_back(k);
+    }
+    cin >> inpu;
+    if(inpu == 2){
+        for(int i = 1;i<n;i+=2){
+            cout<<stri[i]<<' ';
+        }
+    }
+    else{
+        cout<<"No other spectator is allowed";
+    }
+    return 0;
+}
