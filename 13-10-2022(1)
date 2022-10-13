@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    string str;
+    vector<char> a,b;
+
+    int top = -1;
+    cin >> str;
+    int size = str.length();
+    if(size<11){
+        for(char & i : str) {
+            if (b.empty()) {
+                top+=1;
+                b.push_back(0);
+                b.insert(b.begin() + top, i);
+
+
+            }
+            else if((b[top] == '(' && i == ')')){
+                top-=1;
+            }
+            else{
+                top+=1;
+                b.insert(b.begin() + top, i);
+            }
+        }
+        if(top==-1){
+            cout<<"Balanced";
+        }
+        else{
+            cout<<"Not Balanced";
+        }
+    }
+    else{
+        cout<<"Stack Full";
+    }
+    return 0;
+}
