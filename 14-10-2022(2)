@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+int main() {
+    int n;
+    cin>>n;
+    string cars[1000];
+    for(int i=0;i<n;i++)
+    {
+        cin>>cars[i];
+    }
+    for(int i=1;i<n;i++)
+    {
+        cout<<cars[i]<<" ";
+    }
+    cout<<cars[0]<<endl;
+    for(int i=2;i<n;i++)
+    {
+        cout<<cars[i]<<" ";
+    }
+    cout<<cars[0]<<" "<<cars[1]<<endl;
+    for(int i=3;i<n;i++)
+    {
+        cout<<cars[i]<<" ";
+    }
+    cout<<cars[0]<<" "<<cars[1]<<" "<<cars[2];
+    cout<<endl<<cars[3];
+    return 0;
+}
