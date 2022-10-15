@@ -27,4 +27,3 @@ int main() {
     cout<<endl<<cars[3];
     return 0;
 }
-
