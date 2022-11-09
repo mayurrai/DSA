@@ -1,0 +1,67 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+struct node{
+    int info;
+    struct node *left,*right;
+};
+
+struct node *root = NULL;
+vector<int> arr;
+void insertion(){
+    struct node *n = new node,*ptr = root,*par = NULL;
+    cin>>n->info;
+    n->left = NULL;
+    n->right = NULL;
+    if(root == NULL){
+        root = n;
+        return;
+    }
+    while(ptr != NULL){
+        par = ptr;
+        if(n->info < ptr->info){
+            ptr = ptr->left;
+        }
+        else{
+            ptr = ptr->right;
+        }
+    }
+    if(par->info > n->info){
+        par->left = n;
+    }
+    else{
+        par->right = n;
+    }
+}
+
+void postorder(struct node *p){
+    if(p != NULL){
+        int inter = 0;
+        if(p->left) {
+            inter = 1;
+            postorder(p->left);
+        }
+        if(p->right) {
+            inter = 1;
+            postorder(p->right);
+        }
+        if(!inter) {
+            arr.push_back(p->info);
+        }
+    }
+
+}
+
+int main(){
+    int n;
+
+    cin>>n;
+    for(int i = 0;i<n;i++){
+        insertion();
+    }
+    postorder(root);
+    for(int i = arr.size()-1;i>=0;i--){
+        cout<<arr[i]<<' ';
+    }
+    return 0;
+}
