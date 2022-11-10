@@ -1,0 +1,104 @@
+#include <bits/stdc++.h>
+
+#include <algorithm>
+using namespace std;
+vector<int> v;
+class node
+{  
+    public:
+    int data;
+    node* left ;
+    node* right;
+    node(int x)
+    {
+       data=x;
+       left=NULL;
+       right=NULL;
+    }
+
+}*root=NULL;
+
+void insert(int val)
+{
+    node* temp=root;
+    node* trail=NULL;
+
+    if(root==NULL)
+    {
+        node* p=new node(val);
+        root=p;
+        return;
+    }
+                                           // Insertion in BST using iterative function
+    
+        while(temp!=NULL)
+    {  
+        trail=temp;
+        if(temp->data==val)
+        {
+            return ;
+        }                            
+        else if(temp->data<val)
+        {
+
+           
+            temp=temp->right;
+
+        }
+        else
+        {
+            
+            temp=temp->left;
+        }
+    }
+    
+
+    
+
+    node* p=new node(val);
+    if(trail->data<val)
+    {
+        trail->right=p;
+    }
+    else
+    {
+        trail->left=p;
+    }
+
+}
+
+void preorder(node* p)
+{   
+    
+    if(p!=NULL)
+    {
+        if(p->left!=NULL || p->right!=NULL)
+        {
+            v.push_back(p->data);
+        }
+       
+        preorder(p->left);         // Preorder Traversal
+        preorder(p->right);
+    }
+}
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n;
+    cin>>n;
+    
+    for(int i=0;i<n;i++)
+    {
+        int x;
+        cin>>x;
+        insert(x);
+    }
+    preorder(root);
+    sort(v.begin(),v.end());
+    for(auto it:v)
+    {
+        cout<<it<<" ";
+    }
+    return 0;
+}
