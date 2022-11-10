@@ -1,0 +1,67 @@
+#include<iostream>
+using namespace std;
+struct node{
+    int info;
+    struct node *left,*right;
+};
+
+struct node *root = NULL;
+
+
+
+
+
+void insertion(){
+    struct node *n = new node,*ptr = root,*par = NULL;
+    cin>>n->info;
+    n->left = NULL;
+    n->right = NULL;
+    if(root == NULL){
+        root = n;
+        return;
+    }
+    while(ptr != NULL){
+        par = ptr;
+        if(n->info < ptr->info){
+            ptr = ptr->left;
+        }
+        else{
+            ptr = ptr->right;
+        }
+    }
+    if(par->info > n->info){
+        par->left = n;
+    }
+    else{
+        par->right = n;
+    }
+}
+
+void Inorder(struct node *p){
+    if(p != NULL){
+
+        cout << p->info << ' ';
+        Inorder(p->left);
+
+        Inorder(p->right);
+
+
+
+    }
+}
+
+
+int main(){
+    int n;
+    cin>>n;
+    if(n>0 && n<20){
+        for(int i = 0;i<n;i++){
+            insertion();
+        }
+        Inorder(root);
+    }
+    else{
+        cout<<"Invalid Size";
+    }
+    return 0;
+}
